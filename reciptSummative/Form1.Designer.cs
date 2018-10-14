@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.itemOneLabel = new System.Windows.Forms.Label();
             this.itemTwoLabel = new System.Windows.Forms.Label();
             this.itemThreeLabel = new System.Windows.Forms.Label();
@@ -42,11 +43,12 @@
             this.taxAmountLabel = new System.Windows.Forms.Label();
             this.totalAmountLabel = new System.Windows.Forms.Label();
             this.tenderedLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tenderedBox = new System.Windows.Forms.TextBox();
             this.changeAmount = new System.Windows.Forms.Button();
             this.reciptButton = new System.Windows.Forms.Button();
             this.changeLabel = new System.Windows.Forms.Label();
             this.changeAmountLabel = new System.Windows.Forms.Label();
+            this.newOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // itemOneLabel
@@ -54,27 +56,27 @@
             this.itemOneLabel.AutoSize = true;
             this.itemOneLabel.Location = new System.Drawing.Point(43, 23);
             this.itemOneLabel.Name = "itemOneLabel";
-            this.itemOneLabel.Size = new System.Drawing.Size(87, 13);
+            this.itemOneLabel.Size = new System.Drawing.Size(74, 13);
             this.itemOneLabel.TabIndex = 0;
-            this.itemOneLabel.Text = "Number of item 1";
+            this.itemOneLabel.Text = "Burger ($2.49)";
             // 
             // itemTwoLabel
             // 
             this.itemTwoLabel.AutoSize = true;
             this.itemTwoLabel.Location = new System.Drawing.Point(43, 65);
             this.itemTwoLabel.Name = "itemTwoLabel";
-            this.itemTwoLabel.Size = new System.Drawing.Size(87, 13);
+            this.itemTwoLabel.Size = new System.Drawing.Size(65, 13);
             this.itemTwoLabel.TabIndex = 1;
-            this.itemTwoLabel.Text = "Number of item 2";
+            this.itemTwoLabel.Text = "Fries ($1.89)";
             // 
             // itemThreeLabel
             // 
             this.itemThreeLabel.AutoSize = true;
             this.itemThreeLabel.Location = new System.Drawing.Point(43, 106);
             this.itemThreeLabel.Name = "itemThreeLabel";
-            this.itemThreeLabel.Size = new System.Drawing.Size(87, 13);
+            this.itemThreeLabel.Size = new System.Drawing.Size(73, 13);
             this.itemThreeLabel.TabIndex = 2;
-            this.itemThreeLabel.Text = "Number of item 3";
+            this.itemThreeLabel.Text = "Drinks ($0.99)";
             // 
             // itemOneBox
             // 
@@ -171,12 +173,12 @@
             this.tenderedLabel.TabIndex = 13;
             this.tenderedLabel.Text = "Tendered";
             // 
-            // textBox1
+            // tenderedBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(136, 302);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 14;
+            this.tenderedBox.Location = new System.Drawing.Point(136, 302);
+            this.tenderedBox.Name = "tenderedBox";
+            this.tenderedBox.Size = new System.Drawing.Size(100, 20);
+            this.tenderedBox.TabIndex = 14;
             // 
             // changeAmount
             // 
@@ -186,6 +188,7 @@
             this.changeAmount.TabIndex = 15;
             this.changeAmount.Text = "Change";
             this.changeAmount.UseVisualStyleBackColor = true;
+            this.changeAmount.Click += new System.EventHandler(this.changeAmount_Click);
             // 
             // reciptButton
             // 
@@ -196,6 +199,7 @@
             this.reciptButton.Text = "Print Recipt";
             this.reciptButton.UseMnemonic = false;
             this.reciptButton.UseVisualStyleBackColor = true;
+            this.reciptButton.Click += new System.EventHandler(this.reciptButton_Click);
             // 
             // changeLabel
             // 
@@ -215,16 +219,28 @@
             this.changeAmountLabel.TabIndex = 18;
             this.changeAmountLabel.Text = "place holder";
             // 
+            // newOrderButton
+            // 
+            this.newOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newOrderButton.Location = new System.Drawing.Point(303, 408);
+            this.newOrderButton.Name = "newOrderButton";
+            this.newOrderButton.Size = new System.Drawing.Size(134, 33);
+            this.newOrderButton.TabIndex = 19;
+            this.newOrderButton.Text = "New Order";
+            this.newOrderButton.UseVisualStyleBackColor = true;
+            this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 453);
+            this.ClientSize = new System.Drawing.Size(480, 453);
+            this.Controls.Add(this.newOrderButton);
             this.Controls.Add(this.changeAmountLabel);
             this.Controls.Add(this.changeLabel);
             this.Controls.Add(this.reciptButton);
             this.Controls.Add(this.changeAmount);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tenderedBox);
             this.Controls.Add(this.tenderedLabel);
             this.Controls.Add(this.totalAmountLabel);
             this.Controls.Add(this.taxAmountLabel);
@@ -239,8 +255,9 @@
             this.Controls.Add(this.itemThreeLabel);
             this.Controls.Add(this.itemTwoLabel);
             this.Controls.Add(this.itemOneLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Food Place";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,11 +279,12 @@
         private System.Windows.Forms.Label taxAmountLabel;
         private System.Windows.Forms.Label totalAmountLabel;
         private System.Windows.Forms.Label tenderedLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tenderedBox;
         private System.Windows.Forms.Button changeAmount;
         private System.Windows.Forms.Button reciptButton;
         private System.Windows.Forms.Label changeLabel;
         private System.Windows.Forms.Label changeAmountLabel;
+        private System.Windows.Forms.Button newOrderButton;
     }
 }
 
